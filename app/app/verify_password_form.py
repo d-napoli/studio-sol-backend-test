@@ -3,12 +3,15 @@ from enum import Enum
 
 
 class RulesOptions(str, Enum):
-    MINSIZE = "minSize"
-    MINUPPERCASE = "minUppercase"
-    MINLOWERCASE = "minLowercase"
-    MINDIGIT = "minDigit"
-    MINSPECIALCHARS = "minSpecialChars"
-    NOREPETED = "noRepeted"
+    MIN_SIZE = "minSize"
+    MIN_UPPERCASE = "minUppercase"
+    MIN_LOWERCASE = "minLowercase"
+    MIN_DIGIT = "minDigit"
+    MIN_SPECIAL_CHARS = "minSpecialChars"
+    NO_REPETED = "noRepeted"
+
+    def __str__(self):
+        return self.value
 
 
 class RulesForm(BaseModel):

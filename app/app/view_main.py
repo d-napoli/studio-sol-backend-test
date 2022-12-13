@@ -2,7 +2,7 @@ from django.views.decorators.http import require_POST
 from django.views.decorators.csrf import csrf_exempt
 from django.http import JsonResponse
 from app.verify_password_form import VerifyPasswordForm
-from app.validate_password_svc import validate_password
+from app.validate_password_svc import get_no_matches_in_password
 
 
 @csrf_exempt
@@ -10,13 +10,8 @@ from app.validate_password_svc import validate_password
 def verify_password(request):
     form = VerifyPasswordForm.parse_raw(request.body)
 
-    password = form.password
-    rules = form.rules
+    no_matches = get_no_matches_in_password(password=form.password, rules=form.rules)
+    verify = len(no_matches) == 0
 
-    for rule in form.rules:
-        print(f"Rule: {rule.rule.value} - Value: {rule.value}")
-
-    validate_password(password=password)
-
-    response = {"verify": False, "noMatch": ["minDigit"]}
+    response = {"verify": verify, "noMatch": no_matches}
     return JsonResponse(response)
