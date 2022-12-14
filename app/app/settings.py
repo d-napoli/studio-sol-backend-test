@@ -123,3 +123,5 @@ STATIC_URL = "static/"
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 CSRF_TRUSTED_ORIGINS = ["http://localhost", "http://0.0.0.0"]
+
+DEFAULT_CHARSET = "utf-8"

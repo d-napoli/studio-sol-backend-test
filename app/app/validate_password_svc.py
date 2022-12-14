@@ -3,21 +3,20 @@ from django.core.exceptions import ValidationError
 
 
 def _get_rule_validator(rule):
-    match rule:
-        case "minSize":
-            return MinSize()
-        case "minUppercase":
-            return MinUppercase()
-        case "minLowercase":
-            return MinLowercase()
-        case "minDigit":
-            return MinDigit()
-        case "minSpecialChars":
-            return MinSpecialChars()
-        case "noRepeted":
-            return NoRepeted()
-        case _:
-            raise ValidationError(f"Rule {rule} não existe")
+    if rule == "minSize":
+        return MinSize()
+    elif rule == "minUppercase":
+        return MinUppercase()
+    elif rule == "minLowercase":
+        return MinLowercase()
+    elif rule == "minDigit":
+        return MinDigit()
+    elif rule == "minSpecialChars":
+        return MinSpecialChars()
+    elif rule == "noRepeted":
+        return NoRepeted()
+    else:
+        raise ValidationError(f"Rule {rule} não existe")
 
 
 def get_no_matches_in_password(password: str, rules) -> list:
