@@ -11,7 +11,7 @@ docker-compose build
 docker-compose up
 ```
 
-After running those commands, you can use the Rest API by going to this address: `0.0.0.0:8000/verify/`
+After running those commands, you can use the Rest API by going to this address: `0.0.0.0:8000/verify`
 The endpoint is configured to receive `application/json` requests in the following format:
 
 ```json

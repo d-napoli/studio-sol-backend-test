@@ -3,7 +3,7 @@ import json
 
 from app.view_main import verify_password
 
-ENDPOINT = "/verify/"
+ENDPOINT = "/verify"
 
 
 def test_endpoint_only_accept_post_request(rf):

@@ -6,7 +6,7 @@ info:
 servers:
   - url: 0.0.0.0:8000
 paths:
-  "/verify/":
+  "/verify":
     post:
       summary: Verify password strength and matches on certain rules
       requestBody:
