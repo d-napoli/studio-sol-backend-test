@@ -1,0 +1,55 @@
+openapi: 3.0.3
+info:
+  title: Verify Password
+  version: "1.0"
+  description: API to verify password strength and matches certain rules
+servers:
+  - url: 0.0.0.0:8000
+paths:
+  "/verify/":
+    post:
+      summary: Verify password strength and matches on certain rules
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                password:
+                  type: string
+                  example: TesteSenhaForte!123&
+                rules:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      rule:
+                        type: string
+                        example: minSize
+                      value:
+                        type: integer
+                        example: 3
+      responses:
+        "200":
+          description: Return the password verified situation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  verify:
+                    type: boolean
+                  noMatch:
+                    type: array
+                    items:
+                      type: string
+                      enum:
+                        - "minSize"
+                        - "minUppercase"
+                        - "minLowercase"
+                        - "minDigit"
+                        - "minSpecialChars"
+                        - "noRepeted"
+        "405":
+          description: Method Not Allowed
