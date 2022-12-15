@@ -26,10 +26,15 @@ paths:
                     properties:
                       rule:
                         type: string
-                        example: minSize
+                        enum:
+                          - "minSize"
+                          - "minUppercase"
+                          - "minLowercase"
+                          - "minDigit"
+                          - "minSpecialChars"
+                          - "noRepeted"
                       value:
                         type: integer
-                        example: 3
       responses:
         "200":
           description: Return the password verified situation
