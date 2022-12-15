@@ -1,5 +1,7 @@
 # Studio Sol Backend Test
 
+You can find this project also on Github, using [this link](https://github.com/d-napoli/studio-sol-backend-test)
+
 ## How to run the application
 To simplify the coding process, this project was made using `docker`.
 
