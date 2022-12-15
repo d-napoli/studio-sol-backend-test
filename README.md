@@ -25,3 +25,5 @@ The endpoint is configured to receive `application/json` requests in the followi
 	]
 }
 ```
+
+You can check more info about the API documentation on the `api-documentation.yaml` file.
